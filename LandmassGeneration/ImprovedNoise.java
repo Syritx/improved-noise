@@ -25,21 +25,21 @@ public class ImprovedNoise {
 
     			double dx = (double) x / WindowDisplay.WIDTH;
     			double dy = (double) y / WindowDisplay.WIDTH;
-          int frequency = 120;
+                int frequency = 120;
                 
-    			double n1 = noise((dx * frequency), (dy * frequency), seeds.get(0));
-          double n2 = noise((dx * frequency/2), (dy * frequency/2), seeds.get(1));
-          double n3 = noise((dx * frequency/4), (dy * frequency/4), seeds.get(2));
-          double n4 = noise((dx * frequency/16), (dy * frequency/16), seeds.get(3));
-          
-          n1 = (n1 - 1) / 2;
-          n2 = (n2 - 1) / 2;
-          n3 = (n3 - 1) / 2;
-          n4 = (n4 - 1) / 2;
-                
-    			int blue = (int)(n1 * 0xFF) + (int)(n2 * 0xFF) + (int)(n3 * 0xFF) + (int)(n4 * 0xFF);
-    			int green = blue * 0x100;
-          int red = blue * 0x10000;
+                double n1 = noise((dx * frequency), (dy * frequency), seeds.get(0));
+                double n2 = noise((dx * frequency/2), (dy * frequency/2), seeds.get(1));
+                double n3 = noise((dx * frequency/4), (dy * frequency/4), seeds.get(2));
+                double n4 = noise((dx * frequency/16), (dy * frequency/16), seeds.get(3));
+
+                n1 = (n1 - 1) / 2;
+                n2 = (n2 - 1) / 2;
+                n3 = (n3 - 1) / 2;
+                n4 = (n4 - 1) / 2;
+
+                int blue = (int)(n1 * 0xFF) + (int)(n2 * 0xFF) + (int)(n3 * 0xFF) + (int)(n4 * 0xFF);
+                int green = blue * 0x100;
+                int red = blue * 0x10000;
                 
     			int finalValue = red+green+blue;
         		image.setRGB(x, y, finalValue);
